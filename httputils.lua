@@ -25,12 +25,12 @@ end
 --- @return table|false: The content of the site parsed into a table; If the URL is not reachable, an error is printed in the terminal and boolean false is returned
 function gethttpdata(url)
 	local result = gethttpresult(url)
-	if not result then 
+	if not result then
 		return false
 	end
 	local data = result.readAll()
 	data = string.gsub(data,"\n","")
-	if textutils.unserialize(data) == nil then 
+	if textutils.unserialize(data) == nil then
 		print("ERROR: Unable to parse data fetched from '" .. url .. "'")
 		return false
 	end
@@ -43,7 +43,7 @@ end
 --- @return boolean: If the URL is not reachable, an error is printed in the terminal and boolean false is returned; If everything goes well, true is returned
 function downloadfile(filepath,url)
 	local result = gethttpresult(url)
-	if not result then 
+	if not result then
 		return false
 	end
 	fileutils.storeFile(filepath,result.readAll())
