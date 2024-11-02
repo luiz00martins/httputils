@@ -1,15 +1,12 @@
---[[ 
-	HttpUtils Library for ComputerCraft
-	Authors: PentagonLP, SkyTheCodeMaster
-	Version: 1.0
-]]
+--- HttpUtils Library for ComputerCraft
+--- @author PentagonLP, SkyTheCodeMaster
+--- @version 1.0
 
 os.loadAPI("/lib/fileutils")
 
---[[ Gets result of HTTP URL
-	@param String url: The desired URL
-	@return Table|boolean result|error: The result of the request; If the URL is not reachable, an error is printed in the terminal and boolean false is returned
---]]
+--- Gets result of HTTP URL
+--- @param url string: The desired URL
+--- @return table|false: The result of the request; If the URL is not reachable, an error is printed in the terminal and boolean false is returned
 function gethttpresult(url)
 	if not http.checkURL(url) then
 		print("ERROR: Url '" .. url .. "' is blocked in config. Unable to fetch data.")
@@ -23,10 +20,9 @@ function gethttpresult(url)
 	return result
 end
 
---[[ Gets table from HTTP URL
-	@param String url: The desired URL
-	@return Table|boolean result|error: The content of the site parsed into a table; If the URL is not reachable, an error is printed in the terminal and boolean false is returned
---]]
+--- Gets table from HTTP URL
+--- @param url string: The desired URL
+--- @return table|false: The content of the site parsed into a table; If the URL is not reachable, an error is printed in the terminal and boolean false is returned
 function gethttpdata(url)
 	local result = gethttpresult(url)
 	if not result then 
@@ -41,11 +37,10 @@ function gethttpdata(url)
 	return textutils.unserialize(data)
 end
 
---[[ Download file HTTP URL
-	@param String filepath: Filepath where to create file (if file already exists, it gets overwritten)
-	@param String url: The desired URL
-	@return boolean error: If the URL is not reachable, an error is printed in the terminal and boolean false is returned; If everything goes well, true is returned
---]]
+--- Download file HTTP URL
+--- @param filepath string: Filepath where to create file (if file already exists, it gets overwritten)
+--- @param url string: The desired URL
+--- @return boolean: If the URL is not reachable, an error is printed in the terminal and boolean false is returned; If everything goes well, true is returned
 function downloadfile(filepath,url)
 	local result = gethttpresult(url)
 	if not result then 
