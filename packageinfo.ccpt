@@ -5,7 +5,7 @@
 	website = "https://github.com/PentagonLP/httputils/",
 	newestversion = "1.0",
 	install = {
-		url = "https://raw.githubusercontent.com/PentagonLP/httputils/main/httputils.lua",
+		url = "https://raw.githubusercontent.com/luiz00martins/httputils/main/httputils.lua",
 		filename = "httputils",
 		type = "library",
 	},
